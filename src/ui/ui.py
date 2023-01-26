@@ -14,3 +14,4 @@ class UI:
         pygame.init()
 
         self.draw_screen = pygame.display.set_mode((WIDTH,HEIGHT))
+        self.caption = pygame.display.set_caption("Dungeon Generator")
