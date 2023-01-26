@@ -12,7 +12,7 @@ class Menu:
         while self.running:
             for event in pygame.event.get():
                 if event.type == pygame.QUIT:
-                    self.exit_loop()
+                    self.exit_menu()
 
-    def exit_loop(self):
+    def exit_menu(self):
         self.running = False
