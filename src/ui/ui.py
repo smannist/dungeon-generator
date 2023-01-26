@@ -1,0 +1,16 @@
+import pygame
+from ui.ui_menu import Menu
+
+WIDTH = 1200
+HEIGHT = 1000
+
+class UI:
+
+    """This class functions as a base user interface for the program
+    """
+
+    def __init__(self):
+
+        pygame.init()
+
+        self.draw_screen = pygame.display.set_mode((WIDTH,HEIGHT))
