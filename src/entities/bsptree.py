@@ -20,32 +20,32 @@ class BSPNode:
 class BSPTree:
     """ A class for holding the BSP Tree
     Args:
-        node_list (list): list of nodes
+        coordinate_list (list): list of coordinates
     """
-    def __init__(self, node_list):
-        self.root = self.split(node_list)
+    def __init__(self, coordinate_list):
+        self.root = self.split(coordinate_list)
 
     def get_root(self):
         return self.root
 
-    def split(self, node_list):
+    def split(self, coordinate_list):
         """ Recursively create a randomized BSP tree with node splitting using
             x-coordinates as the decider
         Args:
-            node_list (list): list of nodes
+            coordinate_list (list): list of coordinates
         Returns:
             node (BSPNode): next node
         """
-        if len(node_list) == 0:
+        if len(coordinate_list) == 0:
             return None
 
-        randomize = random.randint(0, len(node_list)-1)
-        split_point = node_list.pop(randomize)
+        randomize = random.randint(0, len(coordinate_list)-1)
+        split_point = coordinate_list.pop(randomize)
 
         left_children = []
         right_children = []
 
-        for node in node_list:
+        for node in coordinate_list:
             if node[0] < split_point[0]:
                 left_children.append(node)
             if node[0] >= split_point[0]:
