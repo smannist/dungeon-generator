@@ -23,3 +23,5 @@ Work on dungeon generation class (if needed, modify BSPTree accordingly) and sta
 ## Conclusion
 
 I have made progress, but there is still much work to be done. I will need to conduct further research and make changes to the classes if necessary. Luckily there is still plenty of time left.
+
+Time used: ~8 hours
