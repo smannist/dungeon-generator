@@ -6,7 +6,8 @@ HEIGHT = 1000
 
 class UI:
 
-    """This class functions as a base user interface for the program
+    """ 
+        This class functions as a base user interface for the program
     """
 
     def __init__(self):
