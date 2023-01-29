@@ -59,6 +59,10 @@ class BSPTree:
         return node
 
     def print_tree(self, node):
+        """ Prints the tree
+        Args:
+            node (BSPNode): root node
+        """
         if node is None:
             return None
         print(node.x, node.y, node.width, node.height)
@@ -66,6 +70,6 @@ class BSPTree:
         self.print_tree(node.right_child)
 
 if __name__ == "__main__":
-    node_list = [[1, 2, 3, 4], [5, 6, 7, 8], [9, 10, 11, 12], [13, 14, 15, 16], [92,23,13,42], [10,10,12,23]]
-    bsp_tree = BSPTree(node_list)
+    coordinate_list = [[1, 2, 3, 4], [5, 6, 7, 8], [9, 10, 11, 12], [13, 14, 15, 16], [92,23,13,42], [10,10,12,23]]
+    bsp_tree = BSPTree(coordinate_list)
     bsp_tree.print_tree(bsp_tree.root)
