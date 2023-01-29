@@ -8,7 +8,7 @@ class Menu:
     def __init__(self):
         self.running = True
 
-    def menu_loop(self):
+    def loop(self):
         while self.running:
             for event in pygame.event.get():
                 if event.type == pygame.QUIT:

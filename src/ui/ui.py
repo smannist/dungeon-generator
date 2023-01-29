@@ -10,9 +10,10 @@ class UI:
     """
 
     def __init__(self):
-
+        pygame.init()
         self.draw_screen = pygame.display.set_mode((WIDTH,HEIGHT))
         self.caption = pygame.display.set_caption("Dungeon Generator")
         self.menu = Menu()
 
-        pygame.init()
+    def run(self):
+        self.menu.loop()
