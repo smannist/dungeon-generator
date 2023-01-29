@@ -16,6 +16,10 @@ I have a lot of questions:
 - Is the BSPNode class missing any required fields? I am not completely sure what information should be stored.
 - I am not sure how to test the BSP Tree since the creation is randomized. Any tips?
 
+## What will I do next?
+
+Work on dungeon generation class (if needed, modify BSPTree accordingly) and start working on the UI.
+
 ## Conclusion
 
 I have made progress, but there is still much work to be done. I will need to conduct further research and make changes to the classes if necessary. Luckily there is still plenty of time left.
