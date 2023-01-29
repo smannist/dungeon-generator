@@ -34,24 +34,24 @@ class BSPTree:
         Args:
             coordinate_list (list): list of coordinates
         Returns:
-            node (BSPNode): next node
+            node (BSPNode): node object
         """
         if len(coordinate_list) == 0:
             return None
 
         randomize = random.randint(0, len(coordinate_list)-1)
-        split_point = coordinate_list.pop(randomize)
+        split_coordinates = coordinate_list.pop(randomize)
 
         left_children = []
         right_children = []
 
-        for node in coordinate_list:
-            if node[0] < split_point[0]:
-                left_children.append(node)
-            if node[0] >= split_point[0]:
-                right_children.append(node)
+        for coordinates in coordinate_list:
+            if coordinates[0] < split_coordinates[0]:
+                left_children.append(coordinates)
+            if coordinates[0] >= split_coordinates[0]:
+                right_children.append(coordinates)
 
-        node = BSPNode(split_point[0],split_point[1],split_point[2],split_point[3])
+        node = BSPNode(split_coordinates[0],split_coordinates[1],split_coordinates[2],split_coordinates[3])
 
         node.left_child = self.split(left_children)
         node.right_child = self.split(right_children)

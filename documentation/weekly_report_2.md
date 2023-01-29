@@ -12,7 +12,7 @@ I am starting to understand how BSP Tree works, but I am still uncertain about t
 
 I have a lot of questions:
 
-- Currently the splitting of nodes in BSP Tree is done by comparing the x-coordinates of the given nodes. Would this cause problems in placing the rooms around the actual dungeon map or is this approach fine?
+- Currently the splitting of nodes in BSP Tree is done by comparing the x-coordinates. Would this cause problems in placing the rooms around the actual dungeon map or is this approach fine?
 - Is the BSPNode class missing any required fields? I am not completely sure what information should be stored.
 - I am not sure how to test the BSP Tree since the creation is randomized. Any tips?
 
