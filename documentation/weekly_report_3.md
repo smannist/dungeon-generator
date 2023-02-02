@@ -9,6 +9,6 @@ from there, I should divide the map into smaller sections (within the bounds). A
 
 I restructured pretty much everything. The biggest problem was the fact that it was hard to determine what was actually happening without
 any form of visualization. Now the BSP tree works, but the split still needs more randomization to make the room locations more interesting. The
-The main issue is that the first room is currently created in an almost fixed location (top left). The UI is ugly, too. It is going
+main issue is that the first room is currently created in an almost fixed location (top left). The UI is ugly, too. It is going
 to take a lot of coding to make it look pretty (and I had no experience with Pygame prior to this project which is generating even more problems).
 I feel like I underestimated the size of the project, but its been fun so far.
