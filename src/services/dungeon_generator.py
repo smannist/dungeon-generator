@@ -35,6 +35,10 @@ class DungeonGenerator:
     def create_rooms(self):
         """ Method for creating the rooms. Rooms are marked with # on the dungeon matrix map.
         """
+
+        skip_rooms = randrange(0,3)
+        self.leaf_nodes = self.leaf_nodes[skip_rooms:]
+
         for leaf in self.leaf_nodes:
             room_width = round(randrange(40, 70) / 100 * leaf.width)
             room_height = round(randrange(40, 70) / 100 * leaf.height)

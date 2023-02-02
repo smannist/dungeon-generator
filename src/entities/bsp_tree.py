@@ -1,6 +1,8 @@
 import random
 
 NODE_THRESHOLD = 30
+START_LOCATION_X = random.randint(0,10)
+START_LOCATION_Y = random.randint(5,10)
 
 class BSPNode:
     """ A Class for holding a single node of the BSP Tree. Contains positions and room info.
@@ -26,7 +28,7 @@ class BSPTree:
         height (int): max height of the area
     """
     def __init__(self, width, height):
-        self.root = BSPNode(3, 3, width, height)
+        self.root = BSPNode(START_LOCATION_X, START_LOCATION_Y, width, height)
         self.width = width
         self.height = height
         self.leaf_nodes = []
