@@ -84,7 +84,7 @@ class BSPTree:
         return random.randint(min_split - randomized_difference, max_split)
 
     def create_children(self, node, split, split_vertically):
-        """ Method which creating children of the given node
+        """ Method for creating children of the given node
         """
         if split_vertically:
             node.right = BSPNode(node.x, node.y, node.width, split)
