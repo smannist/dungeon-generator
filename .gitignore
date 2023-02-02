@@ -1,2 +1,4 @@
 __pycache__
 .pytest_cache
+src/services/a_star.py
+src/tester.py

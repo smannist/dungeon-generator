@@ -1,28 +1,46 @@
-from entities.bsptree import BSPTree, BSPNode
+from random import randrange
+from entities.room import Room
 
 class DungeonGenerator:
-    """ Generates a random dungeon using BSPTree
+    """ A class which generates the dungeon
     Args:
-        min_room_size (int): minimum size of a room
-        max_room_size (int): maximum size of a room
-        map_width (int): width of the map
-        map_height (int): height of the map
+        bsp_tree (BSPTree): Contains info for mapping
     """
-    def __init__(self, min_room_size, max_room_size, map_width, map_height):
-        self.min_room_size = min_room_size
-        self.max_room_size = max_room_size
-        self.map_width = map_width
-        self.map_height = map_height
+    def __init__(self, bsp_tree):
+        self.bsp_tree = bsp_tree
+        self.root = bsp_tree.root
+        self.height = bsp_tree.height
+        self.width = bsp_tree.width
+        self.leaf_nodes = bsp_tree.leaf_nodes
+        self.rooms = []
+        self.dungeon = []
 
-    def initialize(self):
-        """ Initialize an empty row x column map
-        Returns:
-                map (list): two dimensional map in list form
+    def generate_dungeon(self):
+        """ Method for generating the dungeon
         """
-        map = []
-        for x in range(self.map_width):
+        self.bsp_tree.split_node(self.root)
+        self.initialize_map()
+        self.create_rooms()
+
+    def initialize_map(self):
+        """ Method for initializing the map. Initially dungeon map is just dots means wall.
+        """
+        self.dungeon = []
+        for _ in range(self.width):
             row = []
-            for y in range(self.map_height):
-                row.append(1)
-                map.append(row) 
-        return map
+            for _ in range(self.height):
+                row.append(".")
+            self.dungeon.append(row)
+
+    def create_rooms(self):
+        """ Method for creating the rooms. Rooms are marked with # on the dungeon matrix map.
+        """
+        for leaf in self.leaf_nodes:
+            room_width = round(randrange(40, 70) / 100 * leaf.width)
+            room_height = round(randrange(40, 70) / 100 * leaf.height)
+
+            leaf.room = Room(leaf.x, leaf.y, room_height, room_width)
+
+            for x in range(leaf.room.x, leaf.room.xy):
+                for y in range(leaf.room.y, leaf.room.yx):
+                    self.dungeon[x][y] = "#"
