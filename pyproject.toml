@@ -4,7 +4,6 @@ version = "0.1.0"
 description = ""
 authors = ["Sami Männistö <sami.mannisto1@gmail.com>"]
 readme = "README.md"
-packages = [{include = "dungeon_generator"}]
 
 [tool.poetry.dependencies]
 python = "^3.8"
