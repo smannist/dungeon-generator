@@ -1,6 +1,6 @@
 import random
 
-NODE_THRESHOLD = 15
+NODE_THRESHOLD = 18
 MINIMUM_SPACE = 5
 
 class BSPNode:
@@ -34,8 +34,8 @@ class BSPTree:
         height (int): max height of the area
     """
     def __init__(self, width, height):
-        start_location_x = random.randint(0,5)
-        start_location_y = random.randint(2,6)
+        start_location_x = random.randint(0,3)
+        start_location_y = random.randint(1,4)
         self.root = BSPNode(start_location_x,start_location_y, width, height)
         self.width = width
         self.height = height
@@ -74,10 +74,10 @@ class BSPTree:
         if node.width == 0 or node.height == 0:
             return False
 
-        if node.width/node.height >= 1.3:
+        if node.width/node.height >= 1.2:
             return False
 
-        if node.height/node.width >= 1.6:
+        if node.height/node.width >= 1.4:
             return True
 
         return random.choice([True, False])
@@ -102,10 +102,10 @@ class BSPTree:
         """ Method for creating children of the given node
         """
         if split_vertically:
-            node.right = BSPNode(node.x, node.y, node.width, split)
-            node.left = BSPNode(node.x, node.y + split, node.width, \
+            node.right = BSPNode(node.x, node.y+2, node.width, split)
+            node.left = BSPNode(node.x+1, node.y + split, node.width, \
                                 node.height - split)
         else:
-            node.right = BSPNode(node.x, node.y, split, node.height)
-            node.left = BSPNode(node.x + split, node.y, node.width-split, \
+            node.right = BSPNode(node.x, node.y+1, split, node.height)
+            node.left = BSPNode(node.x-5 + split, node.y, node.width-split, \
                                 node.height)

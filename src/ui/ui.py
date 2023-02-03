@@ -53,7 +53,7 @@ class UI:
     def show_dungeon(self):
         """ Method for displaying the dungeon on canvas
         """
-        bsp_tree = BSPTree(120,80)
+        bsp_tree = BSPTree(150,100)
         self.dungeon_generator = DungeonGenerator(bsp_tree)
         self.dungeon_generator.generate_dungeon()
         self.height = self.dungeon_generator.height

@@ -103,14 +103,14 @@ class DungeonGenerator:
             list: neighbouring nodes
         """
         x1, y1 = node.x, node.y
-        threshold = 50
+        threshold = 28
         neighbors = []
 
         for leaf in leaf_nodes:
             x2, y2 = leaf.x, leaf.y
-            distance = abs(x2 - x1) + abs(y2 - y1)
+            distance = abs(x2 - x1) + abs(y2 - y1) - 13
             if distance <= threshold:
-                cost = abs(leaf.x - leaf_nodes[-1].x) + abs(leaf.y - leaf_nodes[-1].y)
+                cost = abs(leaf.x - leaf_nodes[-1].x) + abs(leaf.y - leaf_nodes[-1].y) - 150
                 neighbors.append((cost, leaf))
 
         return neighbors
