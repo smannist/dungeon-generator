@@ -12,3 +12,10 @@ any form of visualization. Now the BSP tree works, but the split still needs mor
 main issue is that the first room is currently created in an almost fixed location (top left). The UI is ugly, too. It is going
 to take a lot of coding to make it look pretty (and I had no experience with Pygame prior to this project which is generating even more problems).
 I feel like I underestimated the size of the project, but its been fun so far.
+
+3.3.2023
+
+Managed to write A Star algorithm for pathfinding. The rooms seem to connect without any of them isolating, but the generation does not look
+very appealing. The paths usually form a square. This is something I will have to work on if I find the time. Other than that, I am happy
+with the progress so far. Also need to do more testing! Code might need refactoring too i.e maybe it would make sense to have A Star on its
+own module? I am not sure yet.
