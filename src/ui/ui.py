@@ -1,11 +1,19 @@
 import pygame
+from random import randint
 from entities.bsp_tree import BSPTree
 from services.dungeon_generator import DungeonGenerator
+
+colors = {
+    "#": (185, 90, 49),
+    "*": (200, 100, 50),
+    ".": (84, 38, 18),
+    ",": (90, 35, 20),
+}
 
 class UI:
     """ A Class for user interface
     """
-    def __init__(self, block_size=5):
+    def __init__(self, block_size=7):
         self.block_size = block_size
         self.height = 0
         self.width = 0
@@ -45,7 +53,7 @@ class UI:
     def show_dungeon(self):
         """ Method for displaying the dungeon on canvas
         """
-        bsp_tree = BSPTree(150, 150)
+        bsp_tree = BSPTree(120,80)
         self.dungeon_generator = DungeonGenerator(bsp_tree)
         self.dungeon_generator.generate_dungeon()
         self.height = self.dungeon_generator.height
@@ -67,8 +75,8 @@ class UI:
             for x in range(self.width):
                 pos_x = start_x + x * self.block_size
                 pos_y = start_y + y * self.block_size
-                if self.dungeon[x][y] == "#":
-                    color = (152,111,14)
+                if self.dungeon[x][y] == "#" or self.dungeon[x][y] == "*":
+                    color = colors["#"]
                 else:
-                    color = (81,60,11)
+                    color = colors["."]
                 pygame.draw.rect(self.screen, color, (pos_x-20, pos_y, self.block_size, self.block_size))

@@ -1,8 +1,7 @@
 import random
 
-NODE_THRESHOLD = 30
-START_LOCATION_X = random.randint(0,10)
-START_LOCATION_Y = random.randint(5,10)
+NODE_THRESHOLD = 15
+MINIMUM_SPACE = 5
 
 class BSPNode:
     """ A Class for holding a single node of the BSP Tree. Contains positions and room info.
@@ -20,6 +19,13 @@ class BSPNode:
         self.left = None
         self.right = None
         self.room = None
+        self.cost = 0
+
+    def __lt__(self, node_2):
+        return self.cost < node_2.cost
+
+    def get_cost(self):
+        return self.cost
 
 class BSPTree:
     """ A Class for holding the BSP Tree
@@ -28,7 +34,9 @@ class BSPTree:
         height (int): max height of the area
     """
     def __init__(self, width, height):
-        self.root = BSPNode(START_LOCATION_X, START_LOCATION_Y, width, height)
+        start_location_x = random.randint(0,5)
+        start_location_y = random.randint(2,6)
+        self.root = BSPNode(start_location_x,start_location_y, width, height)
         self.width = width
         self.height = height
         self.leaf_nodes = []
@@ -62,7 +70,11 @@ class BSPTree:
         Returns:
             bool: True / False based on dimensions, else random
         """
-        if node.width/node.height >= 1.2:
+
+        if node.width == 0 or node.height == 0:
+            return False
+
+        if node.width/node.height >= 1.3:
             return False
 
         if node.height/node.width >= 1.6:
@@ -78,12 +90,13 @@ class BSPTree:
         return node.height - NODE_THRESHOLD if split_vertically else node.width - NODE_THRESHOLD
 
     def get_split_size(self, min_split, max_split):
-        """ Method for determinating split size
+        """ Method for determining the split size
         Returns:
-            int: Size of the split
+            int: Size of split area
         """
-        randomized_difference = random.randint(0,10)
-        return random.randint(min_split - randomized_difference, max_split)
+        split = random.randint(min_split, max_split)
+        split = split + MINIMUM_SPACE if split + MINIMUM_SPACE < max_split else max_split
+        return split
 
     def create_children(self, node, split, split_vertically):
         """ Method for creating children of the given node

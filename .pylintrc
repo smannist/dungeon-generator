@@ -107,7 +107,7 @@ score=yes
 [REFACTORING]
 
 # Maximum number of nested blocks for function / method body
-max-nested-blocks=3
+max-nested-blocks=4
 
 # Complete name of functions that never returns. When checking for
 # inconsistent-return-statements if a never returning function is called then
@@ -360,7 +360,11 @@ good-names=i,
            x,
            y,
            xy,
-           yx
+           yx,
+           x1,
+           x2,
+           y1,
+           y2
 
 # Good variable names regexes, separated by a comma. If names match any regex,
 # they will always be accepted
