@@ -2,6 +2,8 @@
 
 ![GHA workflow badge](https://github.com/smannist/dungeon-generator/workflows/CI/badge.svg)
 
+To run the program install dependencies and type poetry run invoke start
+
 ## Documentation
 
 - [Project specification](https://github.com/smannist/dungeon-generator/blob/main/documentation/project_specification.md)
