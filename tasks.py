@@ -12,4 +12,4 @@ def lint(ctx):
 
 @task
 def start(ctx):
-    ctx.run("python src/display_dungeon.py")
+    ctx.run("python src/display_dungeon.py", pty=True)
