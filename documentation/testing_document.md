@@ -14,3 +14,5 @@ Currently tested classes:
 - UI will not be tested
 
 Current coverage:
+
+![Coverage](https://github.com/smannist/dungeon-generator/blob/main/images/coverage_1.png)
