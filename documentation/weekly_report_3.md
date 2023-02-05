@@ -42,6 +42,7 @@ make the dungeons look visually better.
 
 ## Conclusion
 
-Made a ton of progress, but it is still hard to make dungeons that are visually appealing.
+Made a ton of progress, but it is still hard to make dungeons that are visually appealing. Also: thank you for the
+link you sent me on email, using height/width ratios for partitions makes sense!
 
 Time used: 25-30 hours. I neglected other courses to make room for this project.
