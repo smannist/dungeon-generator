@@ -12,4 +12,9 @@ def lint(ctx):
 
 @task
 def start(ctx):
-    ctx.run("python src/display_dungeon.py", pty=True)
+    ctx.run("python3 src/display_dungeon.py", pty=True)
+
+@task
+def coverage(ctx):
+    ctx.run("coverage run --branch -m pytest", pty=True)
+    ctx.run("coverage html", pty=True)
