@@ -1,6 +1,7 @@
 # dungeon-generator
 
 ![GHA workflow badge](https://github.com/smannist/dungeon-generator/workflows/CI/badge.svg)
+[![codecov](https://codecov.io/gh/smannist/dungeon-generator/branch/main/graph/badge.svg?token=YQR5EDMBHQ)](https://codecov.io/gh/smannist/dungeon-generator)
 
 To run the program install dependencies and type poetry run invoke start
 
