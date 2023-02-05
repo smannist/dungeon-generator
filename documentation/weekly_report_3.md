@@ -19,3 +19,29 @@ Managed to write A Star algorithm for pathfinding. The rooms seem to connect wit
 very appealing. The paths usually form a square. This is something I will have to work on if I find the time. Other than that, I am happy
 with the progress so far. Also need to do more testing! Code might need refactoring too i.e maybe it would make sense to have A Star on its
 own module? I am not sure yet.
+
+## What have I done this week?
+
+Worked on BSP Tree partitions and A star search algorithm. Wrote bunch of tests.
+
+## What have I learned?
+
+Much better understanding on how to partition areas using the BSP Tree. I learned how to use A star to find the shortest paths
+between nodes.
+
+## Problems
+
+Right now A star finds too many paths and I have no idea how I can improve it. It is also hard to figure out what the threshold should be
+(i.e too low and nothing connects, too high and you get even more paths). Paths often start at edges of the rooms as well, which makes sense
+since I am using the node x,y coordinates, but it makes the dungeons look a bit ugly.
+
+## What will I do next?
+
+Start working on random walk to generate biomes. It should be a lot easier to figure out than BSP / A Star. Improve UI and try to wiggle with parameters to
+make the dungeons look visually better.
+
+## Conclusion
+
+Made a ton of progress, but it is still hard to make dungeons that are visually appealing.
+
+Time used: 25-30 hours. I neglected other courses to make room for this project.
