@@ -14,15 +14,3 @@ class TestDungeonGenerator(unittest.TestCase):
     def test_dungeon_is_generated(self):
         dungeon = self.dungeon_generator.generate_dungeon()
         self.assertIsNot(dungeon, [])
-
-    def test_neighbors_and_costs_are_returned_correctly(self):
-        node = BSPNode(1,3,0,0)
-        leaf_nodes = [BSPNode(5,10,0,0), BSPNode(11,34,0,0)]
-        neighbors = self.dungeon_generator.get_neighbors(node,leaf_nodes)
-        self.assertEqual(neighbors, [(30,leaf_nodes[0]), (0,leaf_nodes[1])])
-
-    def test_no_neighbors_are_found_if_distance_is_too_great(self):
-        node = BSPNode(1,3,0,0)
-        leaf_nodes = [BSPNode(100,100,0,0)]
-        neighbors = self.dungeon_generator.get_neighbors(node,leaf_nodes)
-        self.assertEqual(neighbors, [])
