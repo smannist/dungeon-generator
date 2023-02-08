@@ -15,3 +15,13 @@ class Room:
         self.yx = y+height
         self.height = height
         self.width = width
+
+    @property
+    def center(self):
+        """ Returns the center of the room
+        Returns:
+            tuple: (x, y) center coordinates of the room
+        """
+        x = self.x + self.width // 2
+        y = self.y + self.height // 2
+        return x, y

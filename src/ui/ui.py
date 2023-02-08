@@ -4,10 +4,9 @@ from entities.bsp_tree import BSPTree
 from services.dungeon_generator import DungeonGenerator
 
 colors = {
-    "#": (185, 90, 49),
-    "*": (200, 100, 50),
-    ".": (84, 38, 18),
-    ",": (90, 35, 20),
+    "#": (160, 110, 90),
+    "*": (0, 128, 0),
+    ".": (85, 53, 40),
 }
 
 class UI:
@@ -53,7 +52,7 @@ class UI:
     def show_dungeon(self):
         """ Method for displaying the dungeon on canvas
         """
-        bsp_tree = BSPTree(120,80)
+        bsp_tree = BSPTree(150,100)
         self.dungeon_generator = DungeonGenerator(bsp_tree)
         self.dungeon_generator.generate_dungeon()
         self.height = self.dungeon_generator.height

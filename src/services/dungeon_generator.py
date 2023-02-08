@@ -1,4 +1,3 @@
-import heapq
 from random import randrange
 from entities.room import Room
 
@@ -20,7 +19,7 @@ class DungeonGenerator:
         """
         self.initialize_map()
         self.create_rooms()
-        self.connect_rooms(self.bsp_tree)
+        self.connect_rooms()
 
     def initialize_map(self):
         """ Method for initializing the map. Initially dungeon map is just dots means wall.
@@ -33,11 +32,18 @@ class DungeonGenerator:
             self.dungeon.append(row)
 
     def create_rooms(self):
-        """ Method for creating the rooms. Rooms are marked with # on the dungeon matrix map.
+        """ Method for creating the rooms.
+            Rooms are marked with # on the dungeon matrix map.
         """
+
+        # skip a few rooms to make the dungeon look less crowded (also increases randomization)
+        for _ in range(0, 9):
+            skip_room = randrange(0, len(self.leaf_nodes))
+            self.leaf_nodes.pop(skip_room)
+
         for leaf in self.leaf_nodes:
-            room_width = round(randrange(30, 80) / 100 * leaf.width)
-            room_height = round(randrange(30, 80) / 100 * leaf.height)
+            room_width = round(randrange(40, 90) / 100 * leaf.width)
+            room_height = round(randrange(40, 90) / 100 * leaf.height)
 
             leaf.room = Room(leaf.x, leaf.y, room_height, room_width)
 
@@ -48,69 +54,47 @@ class DungeonGenerator:
                     else:
                         continue
 
-    def draw_pathways(self, path):
-        """ Method for drawing the pathways on dungeon map
+    def connect_rooms(self):
+        """ Method for connecting the rooms with paths.
+            Paths are marked with * on the dungeon matrix map.
         """
-        if path is not None:
-            for i in range(len(path)-1):
-                start_node = path[i]
-                end_node = path[i + 1]
-                x1, y1 = start_node.x, start_node.y
-                x2, y2 = end_node.x, end_node.y
+        room_centers = self.get_room_centers()
 
-                randomize_axis = randrange(0, 2)
+        for i in range(len(room_centers) - 1):
+            start = room_centers[i]
+            end = room_centers[i + 1]
+            x1, y1 = start
+            x2, y2 = end
 
-                if randomize_axis == 0:
-                    x1 = x1 if x1 < x2 else x2
-                    x2 = x2 if x1 < x2 else x1
-                    for x in range(x1, x2):
-                        self.dungeon[x][y1] = "*"
-                        self.dungeon[x][y1+1] = "*"
+            if x1 is not x2:
+
+                if x2 > x1:
+                    x_increment = 1
                 else:
-                    y1 = y1 if y1 < y2 else y2
-                    y2 = y2 if y1 < y2 else y1
-                    for y in range(y1, y2):
-                        self.dungeon[x1][y] = "*"
-                        self.dungeon[x1+1][y+1] = "*"
+                    x_increment = -1
 
-    def connect_rooms(self, bsp_tree):
-        """ Method for connecting the rooms using A* search algorithm
+                for x in range(x1, x2, x_increment):
+                    self.dungeon[x][y1] = "*"
+
+            if y1 is not y2:
+
+                if y2 > y1:
+                    y_increment = 1
+                else:
+                    y_increment = -1
+
+                for y in range(y1, y2, y_increment):
+                    self.dungeon[x2][y] = "*"
+
+    def get_room_centers(self):
+        """ Method for iterating through list of BSP Tree leaves
+            and getting coordinates of rooms centers.
         Returns:
-            list: pathways
+            list: center of the rooms
         """
-        leaf_nodes = bsp_tree.leaf_nodes
-        start = leaf_nodes[0]
-        paths = []
+        room_centers = []
 
-        for start in leaf_nodes:
-            visited = set()
-            heap = [(0, start, [start])]
-            while heap:
-                (cost, node, path) = heapq.heappop(heap)
-                if node in visited:
-                    continue
-                visited.add(node)
-                paths.append(path)
-                self.draw_pathways(path)
-                for (neighbor_cost, neighbor) in self.get_neighbors(node, leaf_nodes):
-                    heapq.heappush(heap, (cost + neighbor_cost, neighbor, path + [neighbor]))
+        for leaf in self.leaf_nodes:
+            room_centers.append(leaf.room.center)
 
-        return paths
-
-    def get_neighbors(self, node, leaf_nodes):
-        """ Method for finding neighbouring nodes
-        Returns:
-            list: neighbouring nodes
-        """
-        x1, y1 = node.x, node.y
-        threshold = 50
-        neighbors = []
-
-        for leaf in leaf_nodes:
-            x2, y2 = leaf.x, leaf.y
-            distance = abs(x2 - x1) + abs(y2 - y1)
-            if distance <= threshold:
-                cost = abs(leaf.x - leaf_nodes[-1].x) + abs(leaf.y - leaf_nodes[-1].y)
-                neighbors.append((cost, leaf))
-
-        return neighbors
+        return room_centers

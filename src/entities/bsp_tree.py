@@ -1,7 +1,7 @@
 import random
 
 NODE_THRESHOLD = 15
-MINIMUM_SPACE = 5
+MINIMUM_SPACE = -5
 
 class BSPNode:
     """ A Class for holding a single node of the BSP Tree. Contains positions and room info.
@@ -19,13 +19,6 @@ class BSPNode:
         self.left = None
         self.right = None
         self.room = None
-        self.cost = 0
-
-    def __lt__(self, node_2):
-        return self.cost < node_2.cost
-
-    def get_cost(self):
-        return self.cost
 
 class BSPTree:
     """ A Class for holding the BSP Tree
@@ -102,7 +95,7 @@ class BSPTree:
         """ Method for creating children of the given node
         """
         if split_vertically:
-            node.right = BSPNode(node.x, node.y, node.width, split)
+            node.right = BSPNode(node.x, node.y+1, node.width, split)
             node.left = BSPNode(node.x, node.y + split, node.width, \
                                 node.height - split)
         else:
