@@ -1,5 +1,4 @@
 
-
 class Room:
     """A class containing the information of a single room
     Args:

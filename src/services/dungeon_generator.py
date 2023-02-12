@@ -22,7 +22,8 @@ class DungeonGenerator:
         self.connect_rooms()
 
     def initialize_map(self):
-        """ Method for initializing the map. Initially dungeon map is just dots means wall.
+        """ Method for initializing the map.
+            Initially dungeon map is just dots (or the symbol ".") which represents a wall.
         """
         self.dungeon = []
         for _ in range(self.width):
@@ -60,7 +61,7 @@ class DungeonGenerator:
         """
         room_centers = self.get_room_centers()
 
-        for i in range(len(room_centers) - 1):
+        for i in range(len(room_centers)-1):
             start = room_centers[i]
             end = room_centers[i + 1]
             x1, y1 = start
