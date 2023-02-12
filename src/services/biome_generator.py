@@ -39,8 +39,5 @@ class BiomeGenerator:
             "#" represents biome area on the map.
         """
         for coordinate in self.walk_coordinates:
-            try:
-                x,y = coordinate
-                self.biome[x][y] = "#"
-            except IndexError:
-                continue
+            x,y = coordinate
+            self.biome[x][y] = "#"

@@ -75,14 +75,26 @@ class RandomWalk:
         return 0
 
     def validate_step(self,step_x,step_y):
-        """ A method for checking that the a given step is valid
+        """ A method for checking that the given step is valid
+            if a step is outside the boundary of the map
+            instead set step to minimum/maximum allowed value
         Returns:
             bool: True if step is valid, False if not
         """
-        if step_x < 0 or step_x > self.width:
+        if step_x < 0:
+            self.x = 0
             return False
 
-        if step_y < 0 or step_y > self.height:
+        if step_y < 0:
+            self.y = 0
+            return False
+
+        if step_x > self.width - 1:
+            self.x = self.width - 1
+            return False
+
+        if step_y > self.height - 1:
+            self.y = self.height - 1
             return False
 
         return True
