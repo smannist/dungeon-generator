@@ -9,8 +9,6 @@ Currently tested classes:
 - Dungeon generator class
   - Dungeon map is initialized with correct dimensions
   - Dungeon map is generated and it is not empty
-  - Node neighbors are found if they are within the threshold
-  - Node neighbors are not found if they arent within the threshold
 - Biome generator class
   - Constructor tests
   - Biome map is initialized with correct dimensions
