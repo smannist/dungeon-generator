@@ -42,3 +42,33 @@ class TestRandomWalk(unittest.TestCase):
     def test_calling_down_step_increases_y_coordiate_accordigly(self):
         self.assertEqual(self.random_walk.down_step(), 1)
         self.assertEqual(self.random_walk.y, 51)
+
+    def test_valid_steps_are_accepted(self):
+        step_x = 20
+        step_y = 50
+        result = self.random_walk.validate_step(step_x, step_y)
+        self.assertTrue(result)
+
+    def test_invalid_steps_out_of_left_bound_are_not_accepted(self):
+        step_x = -10
+        step_y = 20
+        result = self.random_walk.validate_step(step_x, step_y)
+        self.assertFalse(result)
+
+    def test_invalid_steps_out_of_right_bound_are_not_accepted(self):
+        step_x = 151
+        step_y = 50
+        result = self.random_walk.validate_step(step_x, step_y)
+        self.assertFalse(result)
+
+    def test_invalid_steps_out_of_upper_bound_are_not_accepted(self):
+        step_x = 50
+        step_y = -1
+        result = self.random_walk.validate_step(step_x, step_y)
+        self.assertFalse(result)
+
+    def test_invalid_steps_out_of_lower_bound_are_not_accepted(self):
+        step_x = 50
+        step_y = 200
+        result = self.random_walk.validate_step(step_x, step_y)
+        self.assertFalse(result)
