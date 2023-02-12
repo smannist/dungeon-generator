@@ -25,4 +25,4 @@ Currently tested classes:
 
 Current coverage:
 
-![Coverage](https://github.com/smannist/dungeon-generator/blob/main/images/coverage_1.png)
+![Coverage](https://github.com/smannist/dungeon-generator/blob/main/images/coverage_2.png)
