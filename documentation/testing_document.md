@@ -23,6 +23,11 @@ Currently tested classes:
   - Invalid steps outside of map boundaries are not accepted
 - UI will not be tested
 
+## Performance tests
+
+Performance tests are underway. I will be testing the performance of BSPTree data structure and the GenerateDungeon and GenerateBiome services.
+Performance will most likely be visualized with matplotlib. This is going to require a little bit of coding and research, thus the testing is not finished yet.
+
 Current coverage:
 
 ![Coverage](https://github.com/smannist/dungeon-generator/blob/main/images/coverage_2.png)
