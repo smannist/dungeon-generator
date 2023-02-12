@@ -79,10 +79,10 @@ class RandomWalk:
         Returns:
             bool: True if step is valid, False if not
         """
-        if step_x < 0 or step_x >= self.width or step_x <= self.width:
+        if step_x < 0 or step_x > self.width:
             return False
 
-        if step_y < 0 or step_y >= self.height or step_y <= self.height:
+        if step_y < 0 or step_y > self.height:
             return False
 
         return True
