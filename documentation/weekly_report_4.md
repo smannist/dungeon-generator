@@ -39,4 +39,4 @@ class as well so I will try to refactor it a little bit. Also more testing (incl
 
 The project is progressing well!
 
-Time used: ~8 hours I did not put as much work into the project as last week
+Time used: ~9 hours I did not put as much work into the project as last week
