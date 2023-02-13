@@ -31,7 +31,7 @@ class TestRandomWalk(unittest.TestCase):
         self.assertEqual(self.random_walk.right_step(), 1)
         self.assertEqual(self.random_walk.x, 76)
 
-    def test_calling_left_step_decreases_x_coordinate_accordigly(self):
+    def test_calling_left_step_decreases_x_coordinate_accordingly(self):
         self.assertEqual(self.random_walk.left_step(), 1)
         self.assertEqual(self.random_walk.x, 74)
 
@@ -39,7 +39,7 @@ class TestRandomWalk(unittest.TestCase):
         self.assertEqual(self.random_walk.up_step(), 1)
         self.assertEqual(self.random_walk.y, 49)
 
-    def test_calling_down_step_increases_y_coordiate_accordigly(self):
+    def test_calling_down_step_increases_y_coordiate_accordingly(self):
         self.assertEqual(self.random_walk.down_step(), 1)
         self.assertEqual(self.random_walk.y, 51)
 
