@@ -37,3 +37,21 @@ class TestBSPTree(unittest.TestCase):
         self.bsp_tree.split_node(bsp_node)
         self.assertIsNone(bsp_node.left)
         self.assertIsNone(bsp_node.right)
+
+    def test_node_is_split_vertically_with_fitting_ratios(self):
+        bsp_node = BSPNode(0,0,20,50)
+        is_vertical = self.bsp_tree.determine_split_axis(bsp_node)
+        self.assertTrue(is_vertical)
+        self.bsp_tree.split_node(bsp_node)
+        self.assertIsNotNone(bsp_node.left)
+        self.assertIsNotNone(bsp_node.right)
+        self.assertTrue(isinstance(bsp_node.left, BSPNode) or isinstance(bsp_node.right, BSPNode))
+
+    def test_node_is_split_horizontally_with_fitting_ratios(self):
+        bsp_node = BSPNode(0,0,50,20)
+        is_vertical = self.bsp_tree.determine_split_axis(bsp_node)
+        self.assertFalse(is_vertical)
+        self.bsp_tree.split_node(bsp_node)
+        self.assertIsNotNone(bsp_node.left)
+        self.assertIsNotNone(bsp_node.right)
+        self.assertTrue(isinstance(bsp_node.left, BSPNode) or isinstance(bsp_node.right, BSPNode))
