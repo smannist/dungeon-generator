@@ -6,6 +6,12 @@ Currently tested classes:
 
 - Room
   - Constructing a room works correctly
+- BSPTree
+  - Constructor tests
+  - Node with correct dimensions is split further
+  - Node with incorrect dimensions is not split futher
+  - Node with height/width ration > 1.6 is split vertically
+  - Node with width/height ratio > 1.3 is split horizontally
 - Dungeon generator class
   - Dungeon map is initialized with correct dimensions
   - Dungeon map is generated and it is not empty
