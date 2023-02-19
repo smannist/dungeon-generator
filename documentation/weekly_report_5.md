@@ -8,8 +8,8 @@ Nothing new this week.
 
 ## Problems
 
-I need to take a better look at dungeon generation time complexity + analyze the performance graph (maybe edit it). Dungeon randomization makes analysing the
-graph a little bit tricky.
+I need to take a better look at dungeon generation time complexity + analyze the performance graph (maybe edit it). As far as I know the performance should be width times height (n² assuming w=h) based on the map initializing alone, but my graph does not seem to show that (unless I am blind?). Randomization adds a certain
+factor so it probably makes sense for the graph to not be constantly increasing either.
 
 ## What will I do next?
 
