@@ -29,13 +29,13 @@ Currently tested classes:
   - Invalid steps outside of map boundaries are not accepted
 - UI will not be tested
 
-Current coverage:
+## Coverage
 
 ![Coverage](https://github.com/smannist/dungeon-generator/blob/main/images/coverage_2.png)
 
 ## Performance tests
 
-The time complexities are all average cases. In worst-case scenarios the algorithms will run longer.
+The time complexities are all average cases. In worst-case scenarios the algorithms will run longer. Randomization also adds plenty of factors.
 
 BSPTree:
 
@@ -45,3 +45,13 @@ BSPTree:
 - Thus on average the algorithm runs in a linear time O(n)
 
 ![Performance BSPTree](https://github.com/smannist/dungeon-generator/blob/main/images/BSPTREE_performance_test.png)
+
+DungeonGenerator:
+
+- Requires the BSPTree as well as generating and filling an empty 2D matrix map
+  - As stated above, generating the BSPTree is O(n)
+  - Initializing the map is taxing since it requires two nested for loops and it is thus a quadratic operation
+    - The same can be said about create_rooms() function
+  - The overall run time rounds to around O(n²)
+
+![Performance GenerateDungeon](https://github.com/smannist/dungeon-generator/blob/main/images/GenerateDungeon_performance_test.png)
