@@ -35,5 +35,13 @@ Current coverage:
 
 ## Performance tests
 
-Performance tests are underway. I will be testing the performance of BSPTree data structure and the GenerateDungeon and GenerateBiome services.
-Performance will most likely be visualized with matplotlib. This is going to require a little bit of coding and research, thus the testing is not finished yet.
+The time complexities are all average cases. In worst-case scenarios the algorithms will run longer.
+
+BSPTree:
+
+- The most taxing part is the split_node function which recursively splits the given area into smaller pieces until the threshold is reached
+  - N number of splits are required to reach the threshold thus the time complexity is O(n)
+- The rest of the operations and helper functions run in constant time O(1)
+- Thus on average the algorithm runs in a linear time O(n)
+
+![Performance BSPTree](https://github.com/smannist/dungeon-generator/blob/main/images/BSPTREE_performance_test.png)
