@@ -50,6 +50,8 @@ class UI:
         self.menu_loop()
 
     def menu_loop(self):
+        """Method responsible for providing the menu loop
+        """
         while True:
             for event in pygame.event.get():
                 if event.type == pygame.QUIT:
