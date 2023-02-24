@@ -78,8 +78,8 @@ class Slider:
         pygame.draw.rect(screen, self.slider_bar_color, value_rect)
         screen.blit(value_text, value_rect)
 
-    def update_current_value(self, mouse_pos, mouse_pressed):
-        """Method for updating the state of current value
+    def update_current_state(self, mouse_pos, mouse_pressed):
+        """Method for updating the state of the slider
         """
         if mouse_pressed[0] == 1:
             self.circle_x = mouse_pos[0]

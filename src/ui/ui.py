@@ -62,7 +62,7 @@ class UI:
                     mouse_pressed = pygame.mouse.get_pressed()
 
                     if self.max_room_size_slider.collidepoint(mouse_position):
-                        self.max_room_size_slider.update_current_value(mouse_position, mouse_pressed)
+                        self.max_room_size_slider.update_current_state(mouse_position, mouse_pressed)
                         self.max_room_size_slider.draw_all(self.screen, self.slider_font)
                         self.max_room_size = self.max_room_size_slider.current_value
 
@@ -70,7 +70,7 @@ class UI:
                             self.increase_maximum_room_size_slider()
 
                     if self.min_room_size_slider.collidepoint(mouse_position):
-                        self.min_room_size_slider.update_current_value(mouse_position, mouse_pressed)
+                        self.min_room_size_slider.update_current_state(mouse_position, mouse_pressed)
                         self.min_room_size_slider.draw_all(self.screen, self.slider_font)
                         self.min_room_size = self.min_room_size_slider.current_value
 
@@ -78,7 +78,7 @@ class UI:
                             self.increase_maximum_room_size_slider()
 
                     if self.step_count_slider.collidepoint(mouse_position):
-                        self.step_count_slider.update_current_value(mouse_position, mouse_pressed)
+                        self.step_count_slider.update_current_state(mouse_position, mouse_pressed)
                         self.step_count_slider.draw_all(self.screen, self.slider_font)
                         self.random_walk_steps = self.step_count_slider.current_value
 
