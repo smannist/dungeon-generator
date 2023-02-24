@@ -5,7 +5,7 @@ from entities.bsp_tree import BSPTree, BSPNode
 class TestDungeonGenerator(unittest.TestCase):
     def setUp(self):
         self.bsp_tree = BSPTree(200,150)
-        self.dungeon_generator = DungeonGenerator(self.bsp_tree)
+        self.dungeon_generator = DungeonGenerator(self.bsp_tree, 20, 90)
 
     def test_dungeon_generator_constructor(self):
         self.assertIsInstance(self.dungeon_generator.bsp_tree, BSPTree)

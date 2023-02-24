@@ -6,12 +6,14 @@ class DungeonGenerator:
     Args:
         bsp_tree (BSPTree): Contains info for mapping
     """
-    def __init__(self, bsp_tree):
+    def __init__(self, bsp_tree, min_room_size, max_room_size):
         self.bsp_tree = bsp_tree
         self.root = bsp_tree.root
         self.height = bsp_tree.height
         self.width = bsp_tree.width
         self.leaf_nodes = bsp_tree.leaf_nodes
+        self.max_room_size = max_room_size
+        self.min_room_size = min_room_size
         self.dungeon = []
 
     def generate_dungeon(self):
@@ -43,8 +45,10 @@ class DungeonGenerator:
             self.leaf_nodes.pop(skip_room)
 
         for leaf in self.leaf_nodes:
-            room_width = round(randrange(40, 90) / 100 * leaf.width)
-            room_height = round(randrange(40, 90) / 100 * leaf.height)
+            room_width = round(randrange(self.min_room_size, self.max_room_size) \
+                                                             / 100 * leaf.width)
+            room_height = round(randrange(self.min_room_size, self.max_room_size) \
+                                                             / 100 * leaf.height)
 
             leaf.room = Room(leaf.x, leaf.y, room_height, room_width)
 
