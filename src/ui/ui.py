@@ -28,6 +28,9 @@ class UI:
         self.max_room_size = self.max_room_size_slider.current_value
         self.min_room_size = self.min_room_size_slider.current_value
 
+        self.step_count_slider = Slider(900, 50, 250, 1000, 32000, 1000, (50,50,50), "Random walk steps: ")
+        self.random_walk_steps = self.step_count_slider.current_value
+
         pygame.init()
 
         self.slider_font = pygame.font.Font(None, 20)
@@ -42,7 +45,11 @@ class UI:
         self.draw_menu()
         self.max_room_size_slider.draw_all(self.screen, self.slider_font)
         self.min_room_size_slider.draw_all(self.screen, self.slider_font)
+        self.step_count_slider.draw_all(self.screen, self.slider_font)
 
+        self.menu_loop()
+
+    def menu_loop(self):
         while True:
             for event in pygame.event.get():
                 if event.type == pygame.QUIT:
@@ -68,6 +75,11 @@ class UI:
                         if self.min_room_size >= self.max_room_size:
                             self.increase_maximum_room_size_slider()
 
+                    if self.step_count_slider.collidepoint(mouse_position):
+                        self.step_count_slider.update_current_value(mouse_position, mouse_pressed)
+                        self.step_count_slider.draw_all(self.screen, self.slider_font)
+                        self.random_walk_steps = self.step_count_slider.current_value
+
                     if self.generate_dungeon_button.collidepoint(mouse_position):
                         self.setup_dungeon()
                         self.render_dungeon()
@@ -75,7 +87,6 @@ class UI:
                     if self.generate_biome_button.collidepoint(mouse_position):
                         self.setup_biome()
                         self.render_biome()
-
             pygame.display.update()
 
     def draw_menu(self):
@@ -101,7 +112,7 @@ class UI:
     def setup_biome(self):
         """ Method for setting up biome
         """
-        self.biome_generator = BiomeGenerator(30000,150,100)
+        self.biome_generator = BiomeGenerator(self.random_walk_steps,150,100)
         self.biome_generator.generate_biome()
         self.height = self.biome_generator.height
         self.width = self.biome_generator.width
