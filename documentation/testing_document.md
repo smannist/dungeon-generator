@@ -52,3 +52,14 @@ DungeonGenerator:
 - Hence the time complexity is O(wh)
 
 ![Performance GenerateDungeon](https://github.com/smannist/dungeon-generator/blob/main/images/GenerateDungeon_performance_test.png)
+
+BiomeGenerator:
+
+- Similarly to DungeonGenerator, the most taxing function is initializing the map.
+  - Same time complexity, O(wh)
+- Constructor initializes the random walk, this takes O(steps) time
+- Hence the time complexity is O(wh+steps)
+- Although the time complexity is similar to DungeonGenerator the performance is a lot better since
+  the BSPTtree is not required, creation of rooms is not required etc.
+
+![Performance BiomeGenerator](https://github.com/smannist/dungeon-generator/blob/main/images/GenerateBiome_performance_test.png)
