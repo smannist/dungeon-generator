@@ -31,4 +31,5 @@ More detailed explanations can be found at the testing document.
 
 ## Improvements
 
-- TODO
+- One potential improvement I found would be using NumPy arrays instead of nested lists. This should lower the map generation times significantly.
+  - Source: https://medium.com/@z.arderne/numpy-array-vs-nested-list-622b95d12761
