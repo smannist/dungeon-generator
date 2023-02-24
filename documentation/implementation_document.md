@@ -14,12 +14,14 @@ The general idea is to separate data structures from services.
 
 ## Time complexities
 
-The time complexities are as follows:
+The average time complexities are as follows:
 
 - BSPTree
-  - O(n)
+  - O(nlog(n))
+    - n = total number of splits
 - DungeonGenerator
-  - O(n²)
+  - O(wh)
+    - w = width, h = height
 
 More detailed explanations can be found at the testing document.
 

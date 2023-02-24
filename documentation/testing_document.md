@@ -39,19 +39,16 @@ The time complexities are all average cases. In worst-case scenarios the algorit
 
 BSPTree:
 
-- The most taxing part is the split_node function which recursively splits the given area into smaller pieces until the threshold is reached
-  - N number of splits are required to reach the threshold thus the time complexity is O(n)
-- The rest of the operations and helper functions run in constant time O(1)
-- Thus on average the algorithm runs in a linear time O(n)
+- It takes n number of iterations to reach the max threshold for split areas
+  - Children for the nodes are created each split. This takes log(n) time.
+- Hence, in total the time complexity is around O(nlog(n))
 
 ![Performance BSPTree](https://github.com/smannist/dungeon-generator/blob/main/images/BSPTREE_performance_test.png)
 
 DungeonGenerator:
 
-- Requires the BSPTree as well as generating and filling an empty 2D matrix map
-  - As stated above, generating the BSPTree is O(n)
-  - Initializing the map is taxing since it requires two nested for loops and it is thus a quadratic operation
-    - The same can be said about create_rooms() function
-  - The overall run time rounds to around O(n²)
+- The most taxing functions are initializing the map and creating rooms.
+  - This takes O(wh) time where w = width of the map and h = height of the map
+- Hence the time complexity is O(wh)
 
 ![Performance GenerateDungeon](https://github.com/smannist/dungeon-generator/blob/main/images/GenerateDungeon_performance_test.png)
