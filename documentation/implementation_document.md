@@ -22,6 +22,10 @@ The average time complexities are as follows:
 - DungeonGenerator
   - O(wh)
     - w = width, h = height
+- BiomeGenerator
+  - O(wh+steps)
+    - w = width, h = height
+    - steps = number of random walk steps
 
 More detailed explanations can be found at the testing document.
 
