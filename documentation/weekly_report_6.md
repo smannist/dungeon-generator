@@ -10,3 +10,25 @@ more readable and worked on performance testing. I will probably attempt to gene
 
 Additionally, I did some research on how could I make the application run faster. One big issue is the usage of nested loops, apparently, it would be wise
 to replace the standard library loops/list with NumPy arrays. This would be a huge performance boost for the application (as shown here: https://medium.com/@z.arderne/numpy-array-vs-nested-list-622b95d12761). Something to consider for future projects.
+
+# What have I done this week?
+
+Cleaned up a few classes and wrote code for UI slider. Added sliders to adjust the room sizes as well as the number of random walk steps. Wrote the peer-review.
+
+## What have I learned?
+
+More about how Pygame works, I am still not comfortable in using it, though. I also learned that I should have used numpy arrays instead of regular nested loops, but I wanna focus on implementing other things for now.
+
+## Problems
+
+No problems this week.
+
+## What will I do next?
+
+I will try to make the UI look nicer (especially the font since I received feedback on it and I kinda agree that it looks rough). Implement other fixes suggested in peer-reviews. Maybe add tests. MAYBE combined dungeon if I have time before the demo.
+
+## Conclusion
+
+I feel like I could improve and work on this project forever, but I think it is already in a passing state.
+
+Time spent: around 10 hours in total
