@@ -1,5 +1,4 @@
 import pygame
-from random import randint
 from entities.bsp_tree import BSPTree
 from services.dungeon_generator import DungeonGenerator
 from services.biome_generator import BiomeGenerator
