@@ -15,6 +15,7 @@ Currently tested classes:
 - Dungeon generator class
   - Dungeon map is initialized with correct dimensions
   - Dungeon map is generated and it is not empty
+  - Test that rooms are within boundaries of the map (due to the nature of bsp tree this is not really necessary, but I added the test for clarity)
 - Biome generator class
   - Constructor tests
   - Biome map is initialized with correct dimensions
