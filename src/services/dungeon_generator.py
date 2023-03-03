@@ -56,8 +56,6 @@ class DungeonGenerator:
                 for y in range(leaf.room.y, leaf.room.yx):
                     if 0 <= x < len(self.dungeon) and 0 <= y < len(self.dungeon[0]):
                         self.dungeon[x][y] = "#"
-                    else:
-                        continue
 
     def connect_rooms(self):
         """ Method for connecting the rooms with paths.
