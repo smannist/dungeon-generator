@@ -22,8 +22,8 @@ class UI:
         self.dungeon = None
         self.biome = None
 
-        self.max_room_size_slider = Slider(600, 50, 250, 20, 90, 21, (50,50,50), "Max room size: ")
-        self.min_room_size_slider = Slider(600, 140, 250, 20, 90, 20, (50,50,50), "Min room size: ")
+        self.max_room_size_slider = Slider(600, 50, 250, 20, 80, 21, (50,50,50), "Max room size: ")
+        self.min_room_size_slider = Slider(600, 140, 250, 20, 80, 20, (50,50,50), "Min room size: ")
         self.max_room_size = self.max_room_size_slider.current_value
         self.min_room_size = self.min_room_size_slider.current_value
 

@@ -27,9 +27,7 @@ class BSPTree:
         height (int): max height of the area
     """
     def __init__(self, width, height):
-        start_location_x = random.randint(0,5)
-        start_location_y = random.randint(2,6)
-        self.root = BSPNode(start_location_x,start_location_y, width, height)
+        self.root = BSPNode(2, 0, width, height)
         self.width = width
         self.height = height
         self.leaf_nodes = []
