@@ -26,8 +26,8 @@ class TestDungeonGenerator(unittest.TestCase):
     def test_rooms_are_within_boundaries_of_the_map(self):
         #the rooms should always be within boundaries of the map since
         #bsp tree works by splitting the whole map into smaller pieces
-        #which are always smaller than the original map
-        #but i included the test for clarity anyway
+        #which are always smaller and within dimensions of the original map
+        #thus this should not be necessary but I added the test for clarity
         leaf_nodes = self.bsp_tree.leaf_nodes
         self.dungeon_generator.generate_dungeon()
 
