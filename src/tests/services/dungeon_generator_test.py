@@ -5,7 +5,7 @@ from entities.bsp_tree import BSPTree, BSPNode
 class TestDungeonGenerator(unittest.TestCase):
     def setUp(self):
         self.bsp_tree = BSPTree(200,150)
-        self.dungeon_generator = DungeonGenerator(self.bsp_tree, 20, 90)
+        self.dungeon_generator = DungeonGenerator(self.bsp_tree, 60, 90)
 
     def test_dungeon_generator_constructor(self):
         self.assertIsInstance(self.dungeon_generator.bsp_tree, BSPTree)
@@ -22,3 +22,16 @@ class TestDungeonGenerator(unittest.TestCase):
     def test_dungeon_is_generated(self):
         dungeon = self.dungeon_generator.generate_dungeon()
         self.assertIsNot(dungeon, [])
+
+    def test_rooms_are_within_boundaries_of_the_map(self):
+        #the rooms should always be within boundaries of the map since
+        #bsp tree works by splitting the whole map into smaller pieces
+        #which are always smaller than the original map
+        #but i included the test for clarity anyway
+        leaf_nodes = self.bsp_tree.leaf_nodes
+        self.dungeon_generator.generate_dungeon()
+
+        for node in leaf_nodes:
+            if node.room is not None:
+                self.assertTrue(0 <= node.room.width <= self.bsp_tree.width)
+                self.assertTrue(0 <= node.room.height <= self.bsp_tree.height)
