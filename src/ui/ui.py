@@ -32,8 +32,8 @@ class UI:
 
         pygame.init()
 
-        self.slider_font = pygame.font.Font(None, 20)
-        self.button_font = pygame.font.Font(None, 36)
+        self.slider_font = pygame.font.SysFont("roboto", 20)
+        self.button_font = pygame.font.SysFont("roboto", 26)
 
     def render_ui(self):
         """ Method for starting the UI
