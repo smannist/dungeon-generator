@@ -38,7 +38,7 @@ class UI:
     def render_ui(self):
         """ Method for starting the UI
         """
-        self.screen = pygame.display.set_mode((1600, 1100))
+        self.screen = pygame.display.set_mode((1600, 950))
         self.screen.fill((50, 50, 50))
 
         self.draw_menu()
@@ -146,7 +146,7 @@ class UI:
                     color = colors["#"]
                 else:
                     color = colors["."]
-                pygame.draw.rect(self.screen, color, (pos_x-20, pos_y, self.block_size, self.block_size))
+                pygame.draw.rect(self.screen, color, (pos_x-20, pos_y+100, self.block_size, self.block_size))
 
     def get_start_position(self):
         """ Method which decides where to start drawing
