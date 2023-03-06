@@ -10,6 +10,7 @@ To run the program install dependencies and type poetry run invoke start
 - [Project specification](https://github.com/smannist/dungeon-generator/blob/main/documentation/project_specification.md)
 - [Testing document](https://github.com/smannist/dungeon-generator/blob/main/documentation/testing_document.md)
 - [Implementation document](https://github.com/smannist/dungeon-generator/blob/main/documentation/implementation_document.md)
+- [User guide](https://github.com/smannist/dungeon-generator/blob/main/documentation/user_guide.md)
 
 ## Weekly reports
 
