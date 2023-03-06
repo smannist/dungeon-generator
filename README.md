@@ -20,3 +20,4 @@ To run the program install dependencies and type poetry run invoke start
 - [Week 4](https://github.com/smannist/dungeon-generator/blob/main/documentation/weekly_report_4.md)
 - [Week 5](https://github.com/smannist/dungeon-generator/blob/main/documentation/weekly_report_5.md)
 - [Week 6](https://github.com/smannist/dungeon-generator/blob/main/documentation/weekly_report_6.md)
+- [Final report](https://github.com/smannist/dungeon-generator/blob/main/documentation/final_report.md)
