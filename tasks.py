@@ -18,3 +18,7 @@ def start(ctx):
 def coverage(ctx):
     ctx.run("coverage run --branch -m pytest", pty=True)
     ctx.run("coverage html", pty=True)
+
+@task
+def report(ctx):
+    ctx.run("xdg-open htmlcov/index.html")

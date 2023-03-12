@@ -33,15 +33,16 @@ More detailed explanations can be found at the testing document.
 
 Code
 
-- One potential improvement I found would be using NumPy arrays instead of nested lists. This should lower the map generation times significantly.
+- One potential improvement I found would be using NumPy arrays instead of nested lists
+  - This should lower the map generation times significantly
   - Source: https://medium.com/@z.arderne/numpy-array-vs-nested-list-622b95d12761
 - MST for connecting the dungeon rooms to eliminate multiple paths, although this is necessarily not a problem since the dungeons are uniform anyway
 
 Project
 
-I could pretty much continue working on the project for ever. Here is at least a few ideas:
+I could pretty much continue working on the project forever. Here is at least a few ideas:
 
 - Add colored cells for biome to generate more unique biomes i.e forests, snowy mountains, deserts...
-- Combined dungeon i.e we could randomly split the map and then divide the areas into dungeon and a biome, then connect the two.
+- Combined dungeon i.e we could randomly split the map and then divide the areas into dungeon and a biome, then connect the two
 - If we wanted to, we could add entities into the dungeon for e.g monsters
 - Work making the UI a lot nicer
