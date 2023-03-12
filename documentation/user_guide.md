@@ -10,7 +10,7 @@ git clone https://github.com/smannist/dungeon-generator.git
 
 2. Install Poetry by following the instructions on their [website](https://python-poetry.org/docs/)
 
-3. After installing Poetry, you'll need to install the required dependencies by running the following command::
+3. After installing Poetry, you'll need to install the required dependencies by running the following command:
 
 ```bash
 poetry install
