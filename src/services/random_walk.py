@@ -101,7 +101,7 @@ class RandomWalk:
 
     def get_walk_coordinates(self):
         """ Method for returning list of steps taken
-        Return:
+        Returns:
             list: full random walk coordinates as a list of steps
         """
         return self.walk_coordinates

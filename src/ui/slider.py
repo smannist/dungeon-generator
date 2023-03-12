@@ -29,6 +29,9 @@ class Slider:
 
     def draw_all(self, screen, font):
         """Method for drawing the whole slider on the canvas
+        Args:
+            screen (pygame.Surface): The surface on which to draw the text on
+            font (pygame.font.Font): The font to use for rendering the text
         """
         self.clear_slider_bar(screen)
         self.clear_value_text_background(screen)
@@ -39,6 +42,8 @@ class Slider:
 
     def clear_slider_bar(self, screen):
         """Method for clearing the state of slider bard
+        Args:
+            screen (pygame.Surface): The surface on which to draw the text on
         """
         bar_clear_rect = pygame.Rect(self.x - self.circle_radius, self.y - self.circle_radius, \
                                  self.width + 2 * self.circle_radius, 2 * self.circle_radius + 1)
@@ -46,12 +51,17 @@ class Slider:
 
     def clear_value_text_background(self, screen):
         """Method for clearing the state of slider value text
+        Args:
+            screen (pygame.Surface): The surface on which to draw the text on
         """
         text_clear_rect = pygame.Rect(self.x, self.y - self.circle_radius, self.width, 50)
         pygame.draw.rect(screen, self.slider_bar_color, text_clear_rect)
 
     def draw_text(self, screen, font):
         """Method for drawing the main text of the slider
+        Args:
+            screen (pygame.Surface): The surface on which to draw the text on
+            font (pygame.font.Font): The font to use for rendering the text
         """
         text_surface = font.render(self.text, True, (255, 255, 255))
         text_rect = text_surface.get_rect(center=(self.x + self.width // 2, self.y - self.circle_radius - 10))
@@ -59,6 +69,8 @@ class Slider:
 
     def draw_slider_line(self, screen):
         """Method for drawing the slider line
+        Args:
+            screen (pygame.Surface): The surface on which to draw the text on
         """
         pygame.draw.line(screen, (255, 255, 255), (self.x, self.y), (self.x + self.width, self.y), 5)
 
@@ -71,6 +83,9 @@ class Slider:
 
     def draw_value_text(self, screen, font):
         """Method for drawing the current value of slider
+        Args:
+            screen (pygame.Surface): The surface on which to draw the text on
+            font (pygame.font.Font): The font to use for rendering the text
         """
         value_str = str(self.current_value)
         value_text = font.render(value_str, True, (255, 255, 255))
@@ -80,6 +95,9 @@ class Slider:
 
     def update_current_state(self, mouse_pos, mouse_pressed):
         """Method for updating the state of the slider
+        Args:
+            mouse_pos (tuple): XY coordinates of the mouse
+            mouse_pressed (tuple): tuple of boolean values representing state of the mouse
         """
         if mouse_pressed[0] == 1:
             self.circle_x = mouse_pos[0]
@@ -90,7 +108,11 @@ class Slider:
             self.current_value = int(self.position_to_value(self.circle_x) + 0.5)
 
     def collidepoint(self, mouse_pos):
-        """Method for checking if the mouse is positioned at the slider
+        """Method for checking if the mouse is positioned at on slider
+        Args:
+            mouse_pos (tuple): XY coordinates of the mouse
+        Returns:
+            bool: True if mouse on collidepoint else False
         """
         if self.rect.collidepoint(mouse_pos):
             return True
@@ -98,10 +120,18 @@ class Slider:
 
     def value_to_position(self, value):
         """Method for translating the value to position
+        Args:
+            value (int): The value to be translated to position
+        Returns:
+            int: The position of the slider value
         """
         return int((value - self.min_value) / (self.max_value - self.min_value) * self.width) + self.x
 
     def position_to_value(self, pos):
         """Method for translating the position to value
+        Args:
+            pos (int): The position on the slider bar to be translated to its value
+        Returns:
+            int: The value corresponding to the passed position
         """
         return (pos - self.x) / self.width * (self.max_value - self.min_value) + self.min_value
