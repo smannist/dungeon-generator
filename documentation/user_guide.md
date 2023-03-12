@@ -21,3 +21,9 @@ poetry install
 ```bash
 poetry run invoke start
 ```
+
+## Using the application
+
+Using the application is fairly simple. To generate a dungeon choose desired minimum and maximum size of the rooms and simply hit "generate dungeon" button:
+
+![Generating a dungeon](https://github.com/smannist/dungeon-generator/blob/main/images/user_guide_1.png)
