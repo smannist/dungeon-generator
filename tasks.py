@@ -1,4 +1,3 @@
-import pty
 from invoke import task
 
 
