@@ -78,7 +78,8 @@ class BSPTree:
         Returns:
             int: Maximum split size
         """
-        return node.height - MINIMUM_LEAF_SIZE if split_vertically else node.width - MINIMUM_LEAF_SIZE
+        return node.height - MINIMUM_LEAF_SIZE if split_vertically \
+                                               else node.width - MINIMUM_LEAF_SIZE
 
     def get_split_size(self, min_split, max_split):
         """ Method for determining the split size
