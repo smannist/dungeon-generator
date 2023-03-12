@@ -57,7 +57,7 @@ class BSPTree:
         return True
 
     def determine_split_axis(self, node):
-        """ Method for determinating the split axis
+        """ Method for determining the split axis
         Returns:
             bool: True / False based on dimensions, else random
         """
@@ -74,7 +74,7 @@ class BSPTree:
         return random.choice([True, False])
 
     def get_max_split(self, node, split_vertically):
-        """ Method for determinating max split size
+        """ Method for determining max split size
         Returns:
             int: Maximum split size
         """
