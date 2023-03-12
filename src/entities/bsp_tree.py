@@ -1,6 +1,6 @@
 import random
 
-NODE_THRESHOLD = 15
+MINIMUM_LEAF_SIZE = 15
 MINIMUM_SPACE = -5
 
 class BSPNode:
@@ -41,13 +41,13 @@ class BSPTree:
             return False
 
         split_vertically = self.determine_split_axis(node)
-        max_split = self.get_max_split(node, split_vertically)
+        max_split_size = self.get_max_split(node, split_vertically)
 
-        if max_split <= NODE_THRESHOLD:
+        if max_split_size <= MINIMUM_LEAF_SIZE:
             self.leaf_nodes.append(node)
             return False
 
-        split = self.get_split_size(NODE_THRESHOLD, max_split)
+        split = self.get_split_size(MINIMUM_LEAF_SIZE, max_split_size)
 
         self.create_children(node, split, split_vertically)
 
@@ -78,7 +78,7 @@ class BSPTree:
         Returns:
             int: Maximum split size
         """
-        return node.height - NODE_THRESHOLD if split_vertically else node.width - NODE_THRESHOLD
+        return node.height - MINIMUM_LEAF_SIZE if split_vertically else node.width - MINIMUM_LEAF_SIZE
 
     def get_split_size(self, min_split, max_split):
         """ Method for determining the split size
