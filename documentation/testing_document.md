@@ -32,7 +32,7 @@ Currently tested classes:
 
 ## Coverage
 
-![Coverage](https://github.com/smannist/dungeon-generator/blob/main/images/coverage_2.png)
+![Coverage](https://github.com/smannist/dungeon-generator/blob/main/images/coverage_3.png)
 
 ## Performance tests
 
