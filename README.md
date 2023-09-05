@@ -1,5 +1,7 @@
 # dungeon-generator
 
+<img src="https://github.com/smannist/dungeon-generator/blob/main/images/opening.png" width="800" heigth="600">
+
 ![GHA workflow badge](https://github.com/smannist/dungeon-generator/workflows/CI/badge.svg)
 [![codecov](https://codecov.io/gh/smannist/dungeon-generator/branch/main/graph/badge.svg?token=YQR5EDMBHQ)](https://codecov.io/gh/smannist/dungeon-generator)
 
